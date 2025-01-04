@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>History</h1>
+<table style="width: 80%;">
+    <tr >
+        <th>Name</th>
+        <th>Description</th>
+        <th>Action</th>
+    </tr>
+    {% for item in items %}
+    <tr style="background-color: rgb(175, 172, 172);text-align: center;">
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>
+         <button style="background-color: rgb(4, 4, 235); padding: 10px;border-radius: 10px;"><a href="{% url 'delete_item' item.pk %}" style="text-decoration: none;color: white; ">Delete</a></button>
+
+            
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<button style="background-color: rgb(4, 4, 235); padding: 10px;border-radius: 10px;"><a href="{% url 'home' %}" style="text-decoration: none;color: white; ">Go to Home</a></button>
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section >
+<h1>To-Do List</h1>
+
+
+<div style="display: flex; flex-wrap: wrap; width: 100%;justify-content: space-around;height: auto; gap: 20px;">
+
+    {% for item in items %}
+    <div style=" background-color: rgba(160, 247, 30,0.3);  display: inline;width:auto; padding: 10px; border-radius: 20px;">
+    
+       <strong>Name of the Task:</strong> {{ item.name }} <br><br>
+        <strong>Discription of Task :</strong>{{ item.description }} <br><br>
+        <div style="display: flex;justify-content: space-around;">
+            <button style="visibility: hidden;"></button>
+         <button style="background-color: rgb(4, 4, 235); padding: 10px;border-radius: 10px;"><a href="{% url 'mark_as_reviewed' item.pk %}" style="text-decoration: none;color: white; ">Mark as Reviewed</a></button>
+        </div></div>
+  
+    {% endfor %}
+</div>
+</section>
+{% endblock %}

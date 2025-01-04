@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="text-align: center;">Home</h1>
+<div class="glassy-box">
+    <h2 id="glassy">To-Do List</h2>
+    <form method="post" >
+        {% csrf_token %}
+        <label for="name">Task:</label>
+        <input type="text" id="name" class="field" name="name" required placeholder="Enter any Task"><br><br>
+        <label for="description">Description:</label>
+        <input type="text" id="description" class="field" name="description" required placeholder="Describe about Task"><br><br>
+        <button type="submit" class="field field1" >Add to To-Do List</button>
+    </form>
+</div>
+{% endblock %}
