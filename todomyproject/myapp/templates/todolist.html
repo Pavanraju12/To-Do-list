@@ -13,7 +13,7 @@
        <strong>Name of the Task:</strong> {{ item.name }} <br><br>
         <strong>Discription of Task :</strong>{{ item.description }} <br><br>
         <div style="display: flex;justify-content: space-around;">
-            <button style="visibility: hidden;"></button>
+            <button style="background-color: rgb(4, 4, 235); padding: 10px;border-radius: 10px;"><a href="{% url 'edit_task' item.pk %}" style="text-decoration: none;color: white; ">Edit</a></button>
          <button style="background-color: rgb(4, 4, 235); padding: 10px;border-radius: 10px;"><a href="{% url 'mark_as_reviewed' item.pk %}" style="text-decoration: none;color: white; ">Mark as Reviewed</a></button>
         </div></div>
   

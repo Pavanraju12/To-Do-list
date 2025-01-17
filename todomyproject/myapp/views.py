@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 
 
 from django.contrib.auth.decorators import login_required
@@ -50,3 +50,30 @@ def delete_item(request, pk):
     item = ToDoItem.objects.get(pk=pk)
     item.delete()
     return redirect('history')
+
+
+
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import ToDoItem
+
+def edit_task(request, pk):
+    # Retrieve the task (ToDoItem) based on primary key (pk)
+    item = get_object_or_404(ToDoItem, pk=pk)
+    
+    # Handle the form submission (edit task details)
+    if request.method == 'POST':
+        # Get the new task details from POST data
+        item.name = request.POST.get('name', item.name)  # Default to current name if no new value provided
+        item.description = request.POST.get('description', item.description)  # Default to current description
+        
+        # Save the updated item
+        item.save()
+        
+        # Redirect to the task list after saving the changes
+        return redirect('todolist')
+    
+    return render(request, 'edit.html', {'item': item})
+
+
+
+

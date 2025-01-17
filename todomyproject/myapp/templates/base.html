@@ -73,7 +73,10 @@
         }
         #Search input{
             /* visibility: hidden; */
-            width: 40%;
+            width: 150px;
+            /* color: #fff; */
+            background-color: #f2f2f2;
+            /* style:"width: 150px;" */
         }
 
        
@@ -90,7 +93,7 @@
         <div id="Search" >
         <form method="POST" action="">
             {% csrf_token %}
-        <input type="text" id="search" class="field" name="name" required placeholder="Search for the Task" required> 
+        <input type="text" id="search" class="field" name="name" required placeholder="Search for the Task" required > 
         <button type="submit">Search</button>
     </form>
         </div>
